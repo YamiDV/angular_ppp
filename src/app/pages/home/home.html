@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil de Practicante de TI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      padding: 30px;
+      overflow-x: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .etiqueta {
+      background: #fddde6;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .etiqueta-subtitulo {
+      background: #f8a167;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+    }
+
+    .grupo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-left: 4px solid #facc15;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      width: 280px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card ul {
+      margin-top: 0;
+      padding-left: 18px;
+    }
+
+    .card em {
+      font-style: italic;
+      color: #555;
+    }
+
+    .card.active {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      transform: translate(-50%, -50%) scale(1.2);
+      z-index: 1001;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="container">
+  <div class="etiqueta">Perfil de Practicante de TI</div>
+
+  <div class="etiqueta">Habilidades</div>
+  <div class="grupo">
+    <div>
+      <div class="etiqueta">Habilidades blandas</div>
+      <div class="card">
+        <ul>
+          <li>Comunicación efectiva</li>
+          <li>Trabajo en equipo</li>
+          <li>Empatía</li>
+          <li>Adaptabilidad</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="etiqueta">Habilidades de Investigación</div>
+      <div class="card">
+        <ul>
+          <li>Capacidad para buscar, filtrar y analizar información</li>
+          <li>Uso de fuentes confiables</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="etiqueta">Metodología de trabajo</div>
+      <div class="card">
+        <ul>
+          <li>Metodologías ágiles</li>
+          <li>Autogestión del tiempo</li>
+          <li>Trabajo por objetivos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="etiqueta">Habilidades técnicas</div>
+  <div class="grupo">
+    <div>
+      <div class="etiqueta">Básicas</div>
+      <div class="card">
+        <ul>
+          <li>SQL: Básico</li>
+          <li>Excel: Intermedio</li>
+          <li>Git: Básico</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="etiqueta">Específicas</div>
+
+      <div class="card">
+        <div class="etiqueta-subtitulo">Datos</div>
+        <ul>
+          <li>Practicante de Business Intelligence (BI) / Analytics</li>
+          <li>Practicante de Data Science / Ciencia de Datos</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="etiqueta-subtitulo">Procesos</div>
+        <ul>
+          <li>Practicante de Programación Power Apps / Automatización de procesos</li>
+          <li><em>Practicante Profesional de Planificación y Control TI</em></li>
+          <li>Practicante de Sistemas Integrados de Gestión (ERP / ISO)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="etiqueta-subtitulo">Desarrollo</div>
+        <ul>
+          <li>Practicante de Desarrollo Web</li>
+          <li>Practicante de Desarrollo Móvil</li>
+          <li>Practicante DevOps / Automatización de Entornos</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="etiqueta-subtitulo">Redes</div>
+        <ul>
+          <li>Practicante de Redes y Telecomunicaciones</li>
+          <li>Practicante de Infraestructura TI / Soporte Técnico</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="etiqueta-subtitulo">Ciberseguridad</div>
+        <ul>
+          <li>Practicante de Ciberseguridad</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const overlay = document.getElementById('overlay');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      overlay.classList.add('active');
+    });
+  });
+
+  overlay.addEventListener('click', () => {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    overlay.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
