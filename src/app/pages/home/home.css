@@ -1,3 +1,5 @@
+
+
 .container-home {
   display: flex;
   flex-direction: column;
@@ -55,14 +57,18 @@
 
 .card-home.active {
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  right: 0;
   width: 400px;
-  transform: translate(-50%, -50%) scale(1.2);
-  z-index: 1001;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  padding: 40px 30px;
+  overflow-y: auto;
+  transform: none;
+  border-radius: 0;
+  z-index: 10000;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
 }
-
 .overlay {
   position: fixed;
   top: 0; left: 0;
