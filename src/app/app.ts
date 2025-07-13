@@ -6,9 +6,10 @@ import { Home} from './pages/home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,Header,Footer],
+  standalone: true,  // <-- ¡esto falta!
+  imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected title = 'proto_page';
